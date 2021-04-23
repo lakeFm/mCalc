@@ -32,7 +32,7 @@ CalcUI::CalcUI(QWidget *parent) : QWidget(parent){
 
     padView->addWidget(flatButton('0',SLOT(numpadClick())),4,0,1,2);
     padView->addWidget(flatButton('.',SLOT(opClick()))    ,4,2);
-    padView->addWidget(flatButton('=',SLOT(сalc()))       ,4,3);
+    padView->addWidget(flatButton('=',SLOT(math()))       ,4,3);
 
     exprView->setReadOnly(true);
     exprView->setAlignment(Qt::AlignRight);
@@ -58,7 +58,7 @@ QPushButton* CalcUI::flatButton(QChar c,const char *slotFun){
 
 void CalcUI::keyPressEvent(QKeyEvent *event){
     switch (event->key()) {
-        case Qt::Key_Enter: calc(); break;
+        case Qt::Key_Enter: math(); break;
         case Qt::Key_C: clear(); break;
         case Qt::Key_Q: exit(0); break;
         case Qt::Key_A: clean(); break;
@@ -90,7 +90,7 @@ void CalcUI::append(QString text){
     exprView->setText(tmp + text);
 }
 
-void CalcUI::calc(){
+void CalcUI::math(){
     QString expr = exprView->text();
     QString exp = QString::fromStdString(solver->solveExp(expr.toStdString()));
     exprView->setText(exp);
@@ -103,6 +103,7 @@ void CalcUI::clean(){
 void CalcUI::clear(){
     depend();
 }
+
 void CalcUI::numpadClick(){
     QPushButton *clickedButton = qobject_cast<QPushButton *>(sender());
        if (exprView->text() == "0")

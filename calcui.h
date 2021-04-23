@@ -19,7 +19,7 @@ private:
     void depend();
     void append(QString text);
 private slots:
-    void calc();
+    void math();
     void clean();
     void clear();
     void numpadClick();
