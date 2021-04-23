@@ -1,11 +1,17 @@
 #ifndef CALCBUTTON_H
 #define CALCBUTTON_H
 
+#include <QPushButton>
+#include <calctheme.h>
 
-class CalcButton
+
+
+class CalcButton : public QPushButton
 {
 public:
-    CalcButton();
+    CalcButton(QString,QWidget*);
+    void applyTheme(CalcTheme);
+
 };
 
 #endif // CALCBUTTON_H

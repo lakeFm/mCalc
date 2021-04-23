@@ -1,11 +1,12 @@
 #ifndef CALCUI_H
 #define CALCUI_H
 
+#include <QWidget>
 
-class CalcUI
-{
+class CalcUI : public QWidget{
+    Q_OBJECT
 public:
-    CalcUI();
+    CalcUI(QWidget* = 0);
 };
 
 #endif // CALCUI_H
