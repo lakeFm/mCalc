@@ -7,9 +7,13 @@ CONFIG += c++11
 SOURCES += main.cpp \
     calcbutton.cpp \
     calctheme.cpp \
-    calcui.cpp
+    calcui.cpp \
+    exprsolver.cpp \
+    value.cpp
 
 HEADERS += \
     calcbutton.h \
     calctheme.h \
-    calcui.h
+    calcui.h \
+    exprsolver.h \
+    value.h
