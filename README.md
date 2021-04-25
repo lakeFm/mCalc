@@ -10,9 +10,9 @@ Support operations: <br>
 also work with real numbers
 
 Has shortkeys:
-'C' -  clear 1 character from expression
-'A' - clear all
-'Q' - quit app
+ - 'C' -  clear 1 character from expression
+ - 'A' - clear all
+ - 'Q' - quit app
 
 # Themes
 
