@@ -7,6 +7,8 @@ Support operations: <br>
  - multiply
  - divide
  - power
+ 
+ 
 also work with real numbers
 
 Has shortkeys:
