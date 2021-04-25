@@ -3,10 +3,25 @@
 #include <QFont>
 #include <QKeyEvent>
 #include <QVBoxLayout>
+#include <calctheme.h>
+
+#define darkTheme 0 // set dark theme in app
 
 QFont mFont("Source Code Pro",30);
+CalcTheme theme;
 
 CalcUI::CalcUI(QWidget *parent) : QWidget(parent){
+
+#ifdef darkTheme
+    #if darkTheme == 0
+        theme.setTextColor(QColor("#000000"));
+        theme.setPrimaryColor(QColor("#FFFFFF"));
+    #else
+        theme.setTextColor(QColor("#FFFFFF"));
+        theme.setPrimaryColor(QColor("#000000"));
+    #endif
+#endif
+
     solver = new ExpSolver();
     QVBoxLayout *root = new QVBoxLayout(this);
     QGridLayout *padView = new QGridLayout(this);
@@ -38,11 +53,16 @@ CalcUI::CalcUI(QWidget *parent) : QWidget(parent){
     exprView->setAlignment(Qt::AlignRight);
     exprView->setMaxLength(15);
     exprView->setTabletTracking(false);
+    QString style = "background : " + theme.getPrimaryColor().name(QColor::HexArgb) + ";" +
+                    "color : " + theme.getTextColor().name(QColor::HexArgb) + ";";
+    exprView->setStyleSheet(style);
     exprView->setFont(mFont);
+
     root->addWidget(exprView);
     root->addLayout(padView);
     setLayout(root);
     setFixedSize(300,400);
+    this->setStyleSheet("background : " + theme.getPrimaryColor().name(QColor::HexArgb) + ";");
 }
 
 CalcUI::~CalcUI(){}
@@ -51,6 +71,9 @@ QPushButton* CalcUI::flatButton(QChar c,const char *slotFun){
     QPushButton *btn = new QPushButton(c,this);
     btn->setFont(mFont);
     btn->setFlat(true);
+    QString style = "background : " + theme.getPrimaryColor().name(QColor::HexArgb) + ";" +
+                        "color : " + theme.getTextColor().name(QColor::HexArgb) + ";";
+    btn->setStyleSheet(style);
     btn->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Preferred);
     connect(btn, SIGNAL(clicked()), this, slotFun);
     return btn;
