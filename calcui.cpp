@@ -5,22 +5,18 @@
 #include <QVBoxLayout>
 #include <calctheme.h>
 
-#define darkTheme 0 // set dark theme in app
-
 QFont mFont("Source Code Pro",30);
 CalcTheme theme;
 
-CalcUI::CalcUI(QWidget *parent) : QWidget(parent){
+CalcUI::CalcUI(bool dark,QWidget *parent) : QWidget(parent){
 
-#ifdef darkTheme
-    #if darkTheme == 0
+    if (dark == false){
         theme.setTextColor(QColor("#000000"));
         theme.setPrimaryColor(QColor("#FFFFFF"));
-    #else
+    }else{
         theme.setTextColor(QColor("#FFFFFF"));
         theme.setPrimaryColor(QColor("#000000"));
-    #endif
-#endif
+    }
 
     solver = new ExpSolver();
     QVBoxLayout *root = new QVBoxLayout(this);
@@ -63,6 +59,7 @@ CalcUI::CalcUI(QWidget *parent) : QWidget(parent){
     setLayout(root);
     setFixedSize(300,400);
     this->setStyleSheet("background : " + theme.getPrimaryColor().name(QColor::HexArgb) + ";");
+
 }
 
 CalcUI::~CalcUI(){}

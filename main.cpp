@@ -4,8 +4,9 @@
 
 int main(int argc, char ** argv){
     QApplication app(argc,argv);
-    CalcUI calc(0);
+    CalcUI calc(true);
     calc.resize(400,400);
+    calc.setWindowIcon(QIcon("://img/icon.png"));
     calc.show();
     return app.exec();
 }

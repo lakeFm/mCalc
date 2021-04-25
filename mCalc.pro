@@ -2,7 +2,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++14
 
 SOURCES += main.cpp \
     calctheme.cpp \
@@ -15,3 +15,6 @@ HEADERS += \
     calcui.h \
     exprsolver.h \
     value.h
+
+RESOURCES += \
+    mCalc.qrc

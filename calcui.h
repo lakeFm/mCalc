@@ -11,7 +11,7 @@ private:
     QLineEdit *exprView = new QLineEdit(this);
     ExpSolver *solver;
 public:
-    CalcUI(QWidget* parent = 0);
+    CalcUI(bool dark,QWidget *parent = 0);
     ~CalcUI();
 private:
     QPushButton* flatButton(QChar c,const char *slotFun);
