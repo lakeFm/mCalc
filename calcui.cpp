@@ -11,11 +11,11 @@ CalcTheme theme;
 CalcUI::CalcUI(bool dark,QWidget *parent) : QWidget(parent){
 
     if (dark == false){
-        theme.setTextColor(QColor("#000000"));
-        theme.setPrimaryColor(QColor("#FFFFFF"));
+        theme.setTextColor(QColor(QLatin1String("#000000")));
+        theme.setPrimaryColor(QColor(QLatin1String("#FFFFFF")));
     }else{
-        theme.setTextColor(QColor("#FFFFFF"));
-        theme.setPrimaryColor(QColor("#000000"));
+        theme.setTextColor(QColor(QLatin1String("#FFFFFF")));
+        theme.setPrimaryColor(QColor(QLatin1String("#000000")));
     }
 
     solver = new ExpSolver();

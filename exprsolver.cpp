@@ -62,7 +62,7 @@ string ExpSolver::solveExp(string exp) {
             bool variableCanBeDeclared = true;
 
             // Check if there is a constant with the same name
-            for(int i = 0; i < constants.size(); i++) {
+            for(unsigned long i = 0; i < constants.size(); i++) {
                 // If found, then notice name conflict and terminate
                 if(newVarName.compare(constants[i].name) == 0) {
                     variableCanBeDeclared = false;
@@ -75,7 +75,7 @@ string ExpSolver::solveExp(string exp) {
             bool variableDeclaredBefore = false;
 
             // Find if the variable is already declared
-            for(int i = 0; i < variables.size(); i++) {
+            for(unsigned long i = 0; i < variables.size(); i++) {
                 // If found, redeclare it
                 if(newVarName.compare(variables[i].name) == 0) {
                     variableDeclaredBefore = true;
@@ -94,7 +94,7 @@ string ExpSolver::solveExp(string exp) {
             constants[constants.size()-1] = Variable("ans", result);
 
             // Create output string
-            output = result.printValue();
+            output = QString::number(result.getDecValue()).toStdString();
         }
     }
     else {
