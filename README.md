@@ -1,6 +1,5 @@
 <h1> mCalc - modern calculator written in C++\Qt5 </h1>
 
-App in active development <br>
 Support operations: <br>
  - add
  - minus
